@@ -1,0 +1,12 @@
+# Render blueprint for the backend (API + tracker + demo). Set MONGODB_URI in the Render dashboard.
+services:
+  - type: web
+    name: analytics-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
